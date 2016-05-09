@@ -11,7 +11,7 @@ class ForseoController extends Controller
     protected $forseos;
     public function index() {
         $alert = "";
-        return view('mostiA');
+        return view('mostiB');
     }
     public function store(Request $request) {
         $success = 1;
@@ -28,12 +28,13 @@ class ForseoController extends Controller
         $forseo->seo = $request->seo;
         $forseo->comments = $request->comments;
         $forseo->save();
-        $alert = "Your response has been successfully captured! Thanks";
-        return view('mostiA', compact('success'));
+        return view('mostiB', compact('success'));
     }
-    public function all() {
+    public function all(Request $request) {
         $forseos = Forseo::all();
-        return $forseos;
+        return view('mostiall', [
+            'forseos' => $forseos,
+        ]);
     }
     public function tryPassValue() {
         $data = [];

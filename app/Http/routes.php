@@ -15,13 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::get('mosti', 'ForseoController@index');
 Route::post('mosti', 'ForseoController@store');
 Route::get('info', function () {
     return view('info');
 });
-
 
 Route::get('/mostiOri', function () {
     $alert = "";
